@@ -7,18 +7,27 @@ def total_cash(total)
 end
 
 def add_or_remove_cash(total, amount)
-    total  [:admin][:total_cash] += amount
+    total = @pet_shop[:admin][:total_cash] += amount
 end 
 
 
 def pets_sold(sold)
-     sold = @pet_shop[:admin][:pets_sold]
+    sold = @pet_shop[:admin][:pets_sold]
 end
 
 def increase_pets_sold(pets, sold)
-    pets [:admin][:pets_sold] += sold
+    pets = @pet_shop[:admin][:pets_sold] += sold
 end
 
 def stock_count(stock)
-    stock [:pets].length
+    stock = @pet_shop[:pets].length
 end
+
+def pets_by_breed(pet_shop, breed)
+    matches = []
+    for pet in pet_shop[:pets]
+      matches << pet if(pet[:breed] == breed)
+    end
+    return matches
+  end
+
